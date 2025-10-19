@@ -14,7 +14,7 @@ class SLM_Assistant:
         self.model = genai.GenerativeModel('gemini-1.5-flash') 
         
         # --- FINALIZED "SIMPLE-STRING" PROMPT ---
-        self.system_prompt = """
+        self.system_prompt ="""
         You are a smart assistant for an attendance system. Your only job is to analyze the user's question and choose the correct "tool" to answer it.
         
         You MUST respond with only two words, separated by a comma: "tool_name,date".
@@ -47,16 +47,15 @@ class SLM_Assistant:
         
         User: "What is Bill Gates' roll number?"
         Response: get_student_info,null
+
+        User: "who came in first today?"
+        Response: get_first_arrival,{today_date}
         
-        User: "List all students and their roll numbers."
-        Response: get_all_students,null
-        
-        User: "How many total students are in the system?"
-        Response: get_total_student_count,null
-        
-        User: "How many students were present today?"
-        Response: get_present_count,{today_date}
-        
+        # --- NEW EXAMPLE ADDED HERE ---
+        User: "Who was the last person entered today?"
+        Response: get_last_arrival,{today_date}
+        # --- END OF NEW EXAMPLE ---
+
         User: "who are you?"
         Response: non_attendance,null
         """
@@ -202,3 +201,4 @@ class SLM_Assistant:
 # --- Need to import DictCursor ---
 # Place this near the top imports if not already there
 from psycopg2.extras import DictCursor
+
