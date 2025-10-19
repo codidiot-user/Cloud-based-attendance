@@ -51,10 +51,10 @@ class SLM_Assistant:
         User: "who came in first today?"
         Response: get_first_arrival,{today_date}
         
-        # --- NEW EXAMPLE ADDED HERE ---
-        User: "Who was the last person entered today?"
-        Response: get_last_arrival,{today_date}
-        # --- END OF NEW EXAMPLE ---
+        # --- MORE EXPLICIT EXAMPLE ---
+        User: "Who was the last person entered today?" 
+        Response: get_last_arrival,{today_date} # Use get_last_arrival for "last entered"
+        # --- END OF EXAMPLE ---
 
         User: "who are you?"
         Response: non_attendance,null
@@ -201,4 +201,5 @@ class SLM_Assistant:
 # --- Need to import DictCursor ---
 # Place this near the top imports if not already there
 from psycopg2.extras import DictCursor
+
 
