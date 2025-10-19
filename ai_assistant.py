@@ -1,6 +1,5 @@
 import google.generativeai as genai
 from datetime import datetime
-import mysql.connector # Keep this for the local logger
 import psycopg2 # The new library for the cloud DB
 import streamlit as st
 
@@ -52,4 +51,5 @@ class SLM_Assistant:
         pass # Placeholder for your existing function
 
     # ... (Your other helper functions are UNCHANGED) ...
+
     pass # Placeholder for your existing functions
